@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
   "keywords": [],
   "author": {
@@ -13,5 +13,8 @@
     "email": "fershad@greenweb.org",
     "url": "https://fershad.com"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "vitest": "^2.1.4"
+  }
 }
