@@ -38,7 +38,7 @@ The `fetchGridIntensity()` function will return either:
 
 ### Success
 
-```json
+```js
 {
     "status": "success",
     "gridAware": boolean, // A flag indicating if grid aware changes should be applied
@@ -51,7 +51,7 @@ The `fetchGridIntensity()` function will return either:
 
 ### Error
 
-```json
+```js
 {
     "status": "error",
     "message": "some error message",
