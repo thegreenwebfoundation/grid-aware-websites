@@ -1,4 +1,4 @@
-import { electricityMaps } from "./lib/electricityMaps";
+import { electricityMaps } from "./lib/data/electricityMaps.js";
 import { averageIntensity } from "@tgwf/co2"
 import { codes } from "./utils/countryCodes.js"
 
