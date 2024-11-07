@@ -2,6 +2,16 @@ import { electricityMaps } from "./lib/data/electricityMaps.js";
 import { averageIntensity } from "@tgwf/co2";
 import { codes } from "./utils/countryCodes.js";
 
+/**
+ * Fetch the grid intensity for a given zone.
+ * @param {string} zone The zone to fetch the grid intensity for.
+ * @param {string} apiKey The Electricity Maps API key to use for the request.
+ * @returns {Promise<object>} The grid intensity data for the given zone.
+ * @example
+ * const zone = "DE";
+ * const apiKey = "your-api-key";
+ * const gridIntensity = await fetchGridIntensity(zone, apiKey);
+ */
 const fetchGridIntensity = async (zone, apiKey) => {
   const response = await electricityMaps(zone, apiKey);
 
@@ -26,6 +36,7 @@ const fetchGridIntensity = async (zone, apiKey) => {
 
   return {
     status: "success",
+    region: zone,
     gridAware,
     data: {
       carbonIntensity: data.carbonIntensity,
