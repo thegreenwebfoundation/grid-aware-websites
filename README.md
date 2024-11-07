@@ -15,22 +15,22 @@ This library is currently _not_ published to NPM. We will do this eventually, bu
 You can now import this library into a JavaScript project like this:
 
 ```js
-import { fetchGridIntensity } from 'grid-aware-websites';
+import { fetchGridIntensity } from "grid-aware-websites";
 ```
 
 ## Working with this library
 
-This library currently uses the [Electricity Maps API](https://api-portal.electricitymaps.com/) to fetch current grid carbon intensity data for regions around the World. 
+This library currently uses the [Electricity Maps API](https://api-portal.electricitymaps.com/) to fetch current grid carbon intensity data for regions around the World.
 
 _We hope to add other data sources at a later time._
 
 You will need to have an Electricity Maps API key in order to use this library. You will probably want to set this as a private environment variable in your project. You can obtain an API key here: https://api-portal.electricitymaps.com/
 
 ```js
-import { fetchGridIntensity } from 'grid-aware-websites';
+import { fetchGridIntensity } from "grid-aware-websites";
 
-const zone = "DE" // The zone ID of the region you'd like to get grid intensity data for
-const apiKey = "you_api_key"
+const zone = "DE"; // The zone ID of the region you'd like to get grid intensity data for
+const apiKey = "you_api_key";
 const gridData = await fetchGridIntensity(zone, apiKey);
 ```
 
@@ -63,7 +63,7 @@ The `fetchGridIntensity()` function will return either:
 
 ## Using this projects
 
-This library can be used anywhere that runs server-side JavaScript and can make outbound fetch requests. 
+This library can be used anywhere that runs server-side JavaScript and can make outbound fetch requests.
 
 To do:
 
