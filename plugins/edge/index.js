@@ -1,3 +1,3 @@
-import cloudflare from './cloudflare.js';
+import * as cloudflare from './cloudflare.js';
 
 export { cloudflare };

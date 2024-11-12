@@ -32,7 +32,7 @@ const getLocation = (request, options) => {
           status: "error",
         };
       }
-      
+
       return {
         country
       };
@@ -58,4 +58,4 @@ const getLocation = (request, options) => {
   
 };
 
-export default getLocation;
+export {getLocation};
