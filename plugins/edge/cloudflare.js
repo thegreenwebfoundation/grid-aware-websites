@@ -18,8 +18,31 @@ Secondary features:
  * location = { country: "DE" }
  */
 
-const getLocation = (request) => {
+const getLocation = (request, options) => {
 
+  const mode = options?.mode || "country";
+
+  if (mode === "latlon") {
+    const lat = request.cf?.latitude;
+    const lon = request.cf?.longitude;
+
+    if (!lat || !lon) {
+      if (!request.cf?.country) {
+        return {
+          status: "error",
+        };
+      }
+      
+      return {
+        country
+      };
+    }
+
+    return {
+      lat,
+      lon,
+    };
+  }
   const country = request.cf?.country;
 
   if (!country) {
