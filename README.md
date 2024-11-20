@@ -31,14 +31,14 @@ You will need to have an Electricity Maps API key in order to use this library. 
 You can choose to use grid intensity data to determine if grid-aware changes should be made. In this approach, the current grid intensity (fetched from Electricity Maps) is compared with the annual average grid intensity data (available in CO2.js). If the grid intensity is higher than the annual average, `gridAware: true` will be returned indicating that grid-aware changes should be applied. Otherwise `gridAware: false` will be returned.
 
 ```js
-import { fetchGridIntensity } from "grid-aware-websites";
+import { gridAwareCO2e } from "grid-aware-websites";
 
 const zone = "DE"; // The zone ID of the region you'd like to get grid intensity data for
 const apiKey = "you_api_key";
-const gridData = await fetchGridIntensity(zone, apiKey);
+const gridData = await gridAwareCO2e(zone, apiKey);
 ```
 
-The `fetchGridIntensity()` function will return either:
+The `gridAwareCO2e()` function will return either:
 
 #### Success
 
@@ -70,10 +70,10 @@ The `fetchGridIntensity()` function will return either:
 
 Alternately, you may choose to use the current power consumption breakdown of a regional grid to determine if grid-aware changes should be applied. With this approach, developers can specify if they wish to use data for _all_ low-carbon energy (renewables + nuclear), or _only_ renewable energy. The default mode is using _only_ renewable energy.
 
-A minimum threshold can also be specified. This is the minimum percentage of renewable/low-carbon energy being used by the grid. By default this value is set to `80` percent - meaning that at least 80% of the energy on the grid must come from renewables/low-carbon sources otherwise the `gridAware: true` flag will be returned.
+A minimum threshold can also be specified. This is the minimum percentage of renewable/low-carbon energy being used by the grid. By default this value is set to `50` percent - meaning that at least 80% of the energy on the grid must come from renewables/low-carbon sources otherwise the `gridAware: true` flag will be returned.
 
 ```js
-import { fetchPowerBreakdown } from "grid-aware-websites";
+import { gridAwarePower } from "grid-aware-websites";
 
 const zone = "DE"; // The zone ID of the region you'd like to get grid intensity data for
 const apiKey = "you_api_key";
@@ -83,10 +83,10 @@ const options = {
   minimumPercentage: 95, // The minimum percentage of the choosen energy type before grid-awareness should be triggered.
 };
 
-const gridData = await fetchPowerBreakdown(zone, apiKey, options);
+const gridData = await gridAwarePower(zone, apiKey, options);
 ```
 
-The `fetchPowerBreakdown()` function will return either:
+The `gridAwarePower()` function will return either:
 
 #### Success
 
