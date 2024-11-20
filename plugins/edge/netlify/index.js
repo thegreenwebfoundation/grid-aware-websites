@@ -21,42 +21,41 @@ How much should this plugin do? Should it do error handling for requests?
  */
 
 const getLocation = (context, options) => {
-    const mode = options?.mode || "country";
-  
-    const country = context.geo?.country?.code;
+  const mode = options?.mode || "country";
 
-    if (mode === "latlon") {
-      const lat = context.geo?.latitude;
-      const lon = context.geo?.longitude;
-  
-      if (!lat || !lon) {
-        if (country) {
-          return {
-            status: "error",
-          };
-        }
-  
+  const country = context.geo?.country?.code;
+
+  if (mode === "latlon") {
+    const lat = context.geo?.latitude;
+    const lon = context.geo?.longitude;
+
+    if (!lat || !lon) {
+      if (country) {
         return {
-          country,
+          status: "error",
         };
       }
-  
+
       return {
-        lat,
-        lon,
+        country,
       };
     }
-  
-    if (!country) {
-      return {
-        status: "error",
-      };
-    }
-  
+
     return {
-      country,
+      lat,
+      lon,
     };
+  }
+
+  if (!country) {
+    return {
+      status: "error",
+    };
+  }
+
+  return {
+    country,
+  };
 };
-  
-  export { getLocation };
-  
+
+export { getLocation };

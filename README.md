@@ -1,7 +1,6 @@
 # Grid-aware Websites
 
-> [!CAUTION]
-> _This repository is currently under active development. It is **not advised** that this code be used in any critical production systems._
+> [!CAUTION] > _This repository is currently under active development. It is **not advised** that this code be used in any critical production systems._
 
 ## Installing this library
 

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {getLocation} from ".";
+import { getLocation } from ".";
 
 describe("getLocation", () => {
   it("should return location data when CF data is present", () => {

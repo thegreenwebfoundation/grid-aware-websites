@@ -1,14 +1,14 @@
 import { describe, it, expect } from "vitest";
-import {getLocation} from ".";
+import { getLocation } from ".";
 
 describe("getLocation", () => {
   it("should return location data when geo data is present", () => {
     const mockRequest = {
-      geo:{
+      geo: {
         country: {
           code: "DE",
         },
-      }
+      },
     };
 
     const result = getLocation(mockRequest);
@@ -32,10 +32,10 @@ describe("getLocation", () => {
 
   it("should return the lat lon when the options object is set to latlon", () => {
     const mockRequest = {
-      geo:{
+      geo: {
         latitude: 1,
         longitude: 2,
-      }
+      },
     };
 
     const result = getLocation(mockRequest, { mode: "latlon" });
@@ -48,11 +48,11 @@ describe("getLocation", () => {
 
   it("should return the country when the options object is not set", () => {
     const mockRequest = {
-      geo:{
+      geo: {
         country: {
           code: "DE",
         },
-      }
+      },
     };
 
     const result = getLocation(mockRequest);
@@ -64,11 +64,11 @@ describe("getLocation", () => {
 
   it("should return the country when the options object is set incorrectly", () => {
     const mockRequest = {
-      geo:{
+      geo: {
         country: {
           code: "DE",
         },
-      }
+      },
     };
 
     const result = getLocation(mockRequest, { mode: "invalid" });
