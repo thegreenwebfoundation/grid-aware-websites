@@ -6,7 +6,9 @@ Secondary features:
 
 - Allow developers to opt-in to using Workers KV to save Electricity Maps responses for a specific duration.
 - Allow developers to opt-in to using Workers KV to save the HTML response for a specified duration. Here be dragons though.
-- Allow lat lon to be returned instead of the country code.
+- ✅ Allow lat lon to be returned instead of the country code.
+
+How much should this plugin do? Should it do error handling for requests?
 */
 
 /**
@@ -19,7 +21,6 @@ Secondary features:
  */
 
 const getLocation = (request, options) => {
-
   const mode = options?.mode || "country";
 
   if (mode === "latlon") {
@@ -34,7 +35,7 @@ const getLocation = (request, options) => {
       }
 
       return {
-        country
+        country,
       };
     }
 
@@ -51,11 +52,9 @@ const getLocation = (request, options) => {
     };
   }
 
-
   return {
     country,
   };
-  
 };
 
-export {getLocation};
+export { getLocation };
