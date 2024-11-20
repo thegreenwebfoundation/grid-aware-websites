@@ -69,7 +69,7 @@ The `gridAwareCO2e()` function will return either:
 
 Alternately, you may choose to use the current power consumption breakdown of a regional grid to determine if grid-aware changes should be applied. With this approach, developers can specify if they wish to use data for _all_ low-carbon energy (renewables + nuclear), or _only_ renewable energy. The default mode is using _only_ renewable energy.
 
-A minimum threshold can also be specified. This is the minimum percentage of renewable/low-carbon energy being used by the grid. By default this value is set to `50` percent - meaning that at least 80% of the energy on the grid must come from renewables/low-carbon sources otherwise the `gridAware: true` flag will be returned.
+A minimum threshold can also be specified. This is the minimum percentage of renewable/low-carbon energy being used by the grid. By default this value is set to `50` percent - meaning that at least 50% of the energy on the grid must come from renewables/low-carbon sources otherwise the `gridAware: true` flag will be returned.
 
 ```js
 import { gridAwarePower } from "grid-aware-websites";
