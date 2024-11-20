@@ -23,12 +23,14 @@ How much should this plugin do? Should it do error handling for requests?
 const getLocation = (request, options) => {
   const mode = options?.mode || "country";
 
+  const country = request.cf?.country;
+
   if (mode === "latlon") {
     const lat = request.cf?.latitude;
     const lon = request.cf?.longitude;
 
     if (!lat || !lon) {
-      if (!request.cf?.country) {
+      if (!country) {
         return {
           status: "error",
         };
@@ -44,7 +46,6 @@ const getLocation = (request, options) => {
       lon,
     };
   }
-  const country = request.cf?.country;
 
   if (!country) {
     return {
