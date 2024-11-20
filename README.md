@@ -119,7 +119,13 @@ The `gridAwarePower()` function will return either:
 
 ## Using this projects
 
-This library can be used anywhere that runs server-side JavaScript and can make outbound fetch requests.
+This library can be used anywhere that runs server-side JavaScript and can make outbound fetch requests. Currently, we have limited documentation on how to use this project with:
+
+- [Cloudflare Workers](/plugins/edge/cloudflare/README.md)
+- Netlify Edge Functions (coming soon)
+- ... more to come
+
+You can also see the [Grid-aware Websites Demo repository](https://github.com/fershad/grid-aware-demo) which has some more detailed implementation code that can be referenced.
 
 To do:
 
