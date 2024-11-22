@@ -5,13 +5,11 @@
 
 ## Installing this library
 
-This library is currently _not_ published to NPM. We will do this eventually, but for now you can use it via the `npm link` command.
+You can install this library using NPM.
 
-1. Clone this repository.
-2. In your terminal, navigate to the root folder for this project.
-3. Run the command `npm link`.
-4. In your terminal, navigate to the root folder of the project you want to use this code in.
-5. Run the command `npm link grid-aware-websites`.
+```
+npm install @greenweb/grid-aware-websites
+```
 
 You can now import this library into a JavaScript project like this:
 
