@@ -33,7 +33,7 @@ You can choose to use grid intensity data to determine if grid-aware changes sho
 import { gridAwareCO2e } from "grid-aware-websites";
 
 const zone = "DE"; // The zone ID of the region you'd like to get grid intensity data for
-const apiKey = "you_api_key";
+const apiKey = "your_api_key";
 const gridData = await gridAwareCO2e(zone, apiKey);
 ```
 
@@ -75,7 +75,7 @@ A minimum threshold can also be specified. This is the minimum percentage of ren
 import { gridAwarePower } from "grid-aware-websites";
 
 const zone = "DE"; // The zone ID of the region you'd like to get grid intensity data for
-const apiKey = "you_api_key";
+const apiKey = "your_api_key";
 
 const options = {
   mode: "renewables", // The energy data we want to use - either renewables or low-carbon.
@@ -115,7 +115,7 @@ The `gridAwarePower()` function will return either:
 }
 ```
 
-## Using this projects
+## Using this project
 
 This library can be used anywhere that runs server-side JavaScript and can make outbound fetch requests. Currently, we have limited documentation on how to use this project with:
 
@@ -125,7 +125,7 @@ This library can be used anywhere that runs server-side JavaScript and can make 
 
 You can also see the [Grid-aware Websites Demo repository](https://github.com/fershad/grid-aware-demo) which has some more detailed implementation code that can be referenced.
 
-To do:
+### To do:
 
 - [ ] Add some text explaining the project (or linking to an explainer).
 - [ ] Add proper steps to install this project using NPM and/or Yarn.
