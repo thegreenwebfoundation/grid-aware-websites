@@ -1,1 +1,6 @@
 *.test.js
+.env
+node_modules/
+eslint.config.js
+vitest.config.js
+.vscode
