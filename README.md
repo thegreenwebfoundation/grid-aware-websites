@@ -116,9 +116,13 @@ The `gridAwareCO2e()` function will return either:
 }
 ```
 
-## Using this projects
+## Plugins
+
+Plugins for Grid-aware Websites (gaw) provide platform/framework specific functionality that can aid developers in deploying and using this library.
 
 This library can be used anywhere that runs server-side JavaScript and can make outbound fetch requests. Currently, we have limited documentation on how to use this project with:
+
+### Edge Functions
 
 - [Cloudflare Workers](/thegreenwebfoundation/gaw-plugin-cloudflare-workers)
 - [Netlify Edge Functions](/thegreenwebfoundation/gaw-plugin-netlify-edge)
