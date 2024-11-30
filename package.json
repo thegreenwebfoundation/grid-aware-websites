@@ -20,7 +20,19 @@
     "format": "npm run prettier:fix && npm run lint:fix",
     "test": "vitest"
   },
-  "keywords": [],
+  "keywords": [
+    "grid-aware",
+    "carbon-aware",
+    "sustainability",
+    "greenweb"
+  ],
+  "bugs": {
+    "url": "https://github.com/thegreenwebfoundation/grid-aware-websites/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thegreenwebfoundation/grid-aware-websites"
+  },
   "author": {
     "name": "Fershad Irani",
     "email": "fershad@greenweb.org",
