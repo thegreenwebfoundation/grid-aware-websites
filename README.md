@@ -120,8 +120,8 @@ The `gridAwareCO2e()` function will return either:
 
 This library can be used anywhere that runs server-side JavaScript and can make outbound fetch requests. Currently, we have limited documentation on how to use this project with:
 
-- [Cloudflare Workers](/plugins/edge/cloudflare/README.md)
-- [Netlify Edge Functions](/plugins/edge/netlify/README.md)
+- [Cloudflare Workers](/thegreenwebfoundation/gaw-plugin-cloudflare-workers)
+- [Netlify Edge Functions](/thegreenwebfoundation/gaw-plugin-netlify-edge)
 - ... more to come
 
 To do:
