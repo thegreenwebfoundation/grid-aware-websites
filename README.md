@@ -84,7 +84,7 @@ You can choose to use grid intensity data to determine if grid-aware changes sho
 import { gridAwareCO2e } from "grid-aware-websites";
 
 const zone = "DE"; // The zone ID of the region you'd like to get grid intensity data for
-const apiKey = "you_api_key";
+const apiKey = "your_api_key";
 const gridData = await gridAwareCO2e(zone, apiKey);
 ```
 
