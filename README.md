@@ -33,7 +33,7 @@ A minimum threshold can also be specified. This is the minimum percentage of ren
 ```js
 import { gridAwarePower } from "grid-aware-websites";
 
-const zone = "DE"; // The zone ID of the region you'd like to get grid intensity data for
+const zone = "DE"; // The zone ID string or lat-lon object of the region you'd like to get grid intensity data for
 const apiKey = "you_api_key";
 
 const options = {
@@ -52,7 +52,7 @@ The `gridAwarePower()` function will return either:
 {
     "status": "success",
     "gridAware": boolean, // A flag indicating if grid aware changes should be applied
-    "region": "DE" // The zone ID of the region you'd like to get grid intensity data for
+    "region": "DE" // The country code of the region you'd like to get grid intensity data for
     "data": {
           "mode": "renewables", // The energy source being used
           "minimumPercentage": 95, // The minimum percentage for that energy source before grid-awareness is set to true,
@@ -81,7 +81,7 @@ You can choose to use grid intensity data to determine if grid-aware changes sho
 ```js
 import { gridAwareCO2e } from "grid-aware-websites";
 
-const zone = "DE"; // The zone ID of the region you'd like to get grid intensity data for
+const zone = "DE"; // The zone ID string or lat-lon object you'd like to get grid intensity data for
 const apiKey = "your_api_key";
 
 const options = {
@@ -100,7 +100,7 @@ The `gridAwareCO2e()` function will return either:
 {
     "status": "success",
     "gridAware": boolean, // A flag indicating if grid aware changes should be applied
-    "region": "DE" // The zone ID of the region you'd like to get grid intensity data for
+    "region": "DE" // The country code of the region you'd like to get grid intensity data for
     "data" {
         "mode": "average", // The comparison method being used
         "carbonIntensity": number, // The current grid intensity fetched from Electricity Maps
