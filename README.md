@@ -56,8 +56,8 @@ The `gridAwarePower()` function will return either:
     "data": {
           "mode": "renewables", // The energy source being used
           "minimumPercentage": 95, // The minimum percentage for that energy source before grid-awareness is set to true,
-          "low-carbon percentage": number, // Data from Electricity Maps for the current low-carbon (renewables + nuclear) percentage,
-          "renewable percentage": number, // Data from Electricity Maps for the current renewables percentage
+          "renewablePercentage": number, // Only returned when mode === "renewables". Data from Electricity Maps for the current renewables percentage
+        //   "lowCarbonPercentage": number, // Only returned when mode === "low-carbon". Data from Electricity Maps for the current low-carbon (renewables + nuclear) percentage,
         },
 }
 ```
@@ -83,7 +83,13 @@ import { gridAwareCO2e } from "grid-aware-websites";
 
 const zone = "DE"; // The zone ID of the region you'd like to get grid intensity data for
 const apiKey = "your_api_key";
-const gridData = await gridAwareCO2e(zone, apiKey);
+
+const options = {
+  mode: "average", // The type of comparison used to determine grid-awareness - either average or limit. Default: average
+  minimumIntensity: 400, // The minimum grid intensity value (grams CO2e/kWh) before grid-awareness is triggered. Default: 400
+};
+
+const gridData = await gridAwareCO2e(zone, apiKey, options);
 ```
 
 The `gridAwareCO2e()` function will return either:
@@ -96,8 +102,10 @@ The `gridAwareCO2e()` function will return either:
     "gridAware": boolean, // A flag indicating if grid aware changes should be applied
     "region": "DE" // The zone ID of the region you'd like to get grid intensity data for
     "data" {
+        "mode": "average", // The comparison method being used
         "carbonIntensity": number, // The current grid intensity fetched from Electricity Maps
-        "averageIntensity": number // The annual average grid intensity for the zone being checked taken from CO2.js
+        "averageIntensity": number // Only returned when mode === "average". The annual average grid intensity for the zone being checked taken from CO2.js
+        // "minimumIntensity": 400 // Returned only when mode === "limit".
     }
 }
 ```
