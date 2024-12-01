@@ -31,7 +31,7 @@ Alternately, you may choose to use the current power consumption breakdown of a 
 A minimum threshold can also be specified. This is the minimum percentage of renewable/low-carbon energy being used by the grid. By default this value is set to `50` percent - meaning that at least 50% of the energy on the grid must come from renewables/low-carbon sources otherwise the `gridAware: true` flag will be returned.
 
 ```js
-import { gridAwarePower } from "grid-aware-websites";
+import { gridAwarePower } from "@greenweb/grid-aware-websites";
 
 const zone = "DE"; // The zone ID string or lat-lon object of the region you'd like to get grid intensity data for
 const apiKey = "you_api_key";
