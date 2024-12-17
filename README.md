@@ -130,9 +130,14 @@ This library can be used anywhere that runs server-side JavaScript and can make 
 
 ### Edge Functions
 
-- [Cloudflare Workers](/thegreenwebfoundation/gaw-plugin-cloudflare-workers)
-- [Netlify Edge Functions](/thegreenwebfoundation/gaw-plugin-netlify-edge)
+- [Cloudflare Workers](https://github.com/thegreenwebfoundation/gaw-plugin-netlify-edge)
+- [Netlify Edge Functions](https://github.com/thegreenwebfoundation/gaw-plugin-netlify-edge)
 - ... more to come
+
+### Demo sites
+
+- [Cloudflare Workers Demo Site](https://github.com/thegreenwebfoundation/grid-aware-websites-demo-cloudflare)
+- [Netlify Edge Functions Demo Site](https://github.com/thegreenwebfoundation/grid-aware-websites-demo-netlify)
 
 To do:
 
