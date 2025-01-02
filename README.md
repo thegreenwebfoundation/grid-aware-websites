@@ -2,6 +2,15 @@
 
 > [!CAUTION] > _This repository is currently under active development. It is **not advised** that this code be used in any critical production systems._
 
+This library is part of the grid-aware websites toolkit developed by [Green Web Foundation](https://www.thegreenwebfoundation.org). The aim of the toolkit is to considerably reduce the barrier to entry for developers and designers seeking to build grid-aware websites. It consists of three parts:
+
+1. This codebase
+1. Technical documentation
+1. UX/UI design catalogue
+
+[Read about the project on our website](https://www.thegreenwebfoundation.org/tools/grid-aware-websites/).
+
+
 ## Installing this library
 
 You can install this library using NPM.
@@ -130,10 +139,11 @@ This library can be used anywhere that runs server-side JavaScript and can make 
 
 ### Edge Functions
 
-- [Cloudflare Workers](/thegreenwebfoundation/gaw-plugin-cloudflare-workers)
-- [Netlify Edge Functions](/thegreenwebfoundation/gaw-plugin-netlify-edge)
+- [Cloudflare Workers](https://github.com/thegreenwebfoundation/gaw-plugin-netlify-edge)
+- [Netlify Edge Functions](https://github.com/thegreenwebfoundation/gaw-plugin-netlify-edge)
 - ... more to come
 
-To do:
+### Demo sites
 
-- [ ] Add some text explaining the project (or linking to an explainer).
+- [Cloudflare Workers Demo Site](https://github.com/thegreenwebfoundation/grid-aware-websites-demo-cloudflare)
+- [Netlify Edge Functions Demo Site](https://github.com/thegreenwebfoundation/grid-aware-websites-demo-netlify)
