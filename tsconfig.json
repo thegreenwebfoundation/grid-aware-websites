@@ -7,6 +7,6 @@
     "emitDeclarationOnly": true,
     "declarationMap": true,
   },
-  "include": ["src/**/*.js"],
-  "exclude": ["node_modules", "src/**/*.test.js"]
+  "include": ["index.js", "lib/**/*.js", "utils/**/*.js"],  
+  "exclude": ["node_modules", "**/*.test.js"]
 }

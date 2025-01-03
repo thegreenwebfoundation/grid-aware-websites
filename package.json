@@ -4,7 +4,7 @@
   "version": "0.1.4",
   "type": "module",
   "main": "index.js",
-  "types": "src/index.d.ts",
+  "types": "types/index.d.ts",
   "scripts": {
     "lint": "npx eslint .",
     "lint:fix": "npm run lint -- --fix",
@@ -15,7 +15,7 @@
     "type-check": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
     "build": "npm run generate-types",
-    "generate-types": "rm -rf src/index.d.ts && tsc"
+    "generate-types": "rm -rf types/index.d.ts && tsc"
   },
   "keywords": [
     "grid-aware",
