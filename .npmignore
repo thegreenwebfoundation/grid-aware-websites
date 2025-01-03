@@ -4,3 +4,4 @@ node_modules/
 eslint.config.js
 vitest.config.js
 .vscode
+banner.jpg
