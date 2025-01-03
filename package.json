@@ -4,6 +4,7 @@
   "version": "0.1.4",
   "type": "module",
   "main": "index.js",
+  "types": "src/index.d.ts",
   "exports": {
     ".": {
       "import": "./index.js"
@@ -18,7 +19,11 @@
     "prettier": "npx prettier . --check",
     "prettier:fix": "npm run prettier -- --write",
     "format": "npm run prettier:fix && npm run lint:fix",
-    "test": "vitest"
+    "test": "vitest",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch",
+    "build": "npm run generate-types",
+    "generate-types": "rm -rf src/index.d.ts && tsc"
   },
   "keywords": [
     "grid-aware",
