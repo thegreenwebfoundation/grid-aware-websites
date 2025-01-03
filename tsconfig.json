@@ -3,7 +3,7 @@
     "allowJs": true,
     "checkJs": true,
     "declaration": true,
-    "declarationDir": "src",
+    "declarationDir": "types",
     "emitDeclarationOnly": true,
     "declarationMap": true,
   },

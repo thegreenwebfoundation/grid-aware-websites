@@ -15,7 +15,7 @@
     "type-check": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
     "build": "npm run generate-types",
-    "generate-types": "rm -rf types/index.d.ts && tsc"
+    "generate-types": "rm -rf types && tsc"
   },
   "keywords": [
     "grid-aware",
