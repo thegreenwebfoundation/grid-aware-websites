@@ -72,18 +72,6 @@ The `gridAwarePower()` function will return either:
 }
 ```
 
-#### Error
-
-```js
-{
-    "status": "error",
-    "message": "some error message",
-    "details": {
-        // ... an object with additional information about the error, if available.
-    }
-}
-```
-
 ### Using grid intensity data
 
 You can choose to use grid intensity data to determine if grid-aware changes should be made. In this approach, the current grid intensity (fetched from Electricity Maps) is compared with the annual average grid intensity data (available in CO2.js). If the grid intensity is higher than the annual average, `gridAware: true` will be returned indicating that grid-aware changes should be applied. Otherwise `gridAware: false` will be returned.
@@ -120,7 +108,9 @@ The `gridAwareCO2e()` function will return either:
 }
 ```
 
-#### Error
+### Error
+
+If either function experiences an error during execution, it will return an error status with additional context.
 
 ```js
 {
