@@ -14,6 +14,10 @@ export type GridIntensityOptions = {
      * - The data provider to use
      */
     dataProvider?: string;
+    /**
+     * - The API key for the data provider
+     */
+    apiKey?: string;
 };
 /**
  * A class for checking the grid intensity of a specified zone.
@@ -28,6 +32,7 @@ export class GridIntensity {
     mode: any;
     minimumIntensity: any;
     dataProvider: any;
+    apiKey: any;
     /**
      * Set the mode for grid intensity checks.
      * @param {("average"|"limit")} mode The mode to use for grid intensity checks.
@@ -58,9 +63,8 @@ export class GridIntensity {
     /**
      * Check the grid intensity of the specified zone.
      * @param {string} zone The zone for which to check the grid intensity.
-     * @param {string} apiKey The API key for the data provider.
      * @returns {Promise<object>} The results of grid-awareness check based on grid intensity and specified mode.
      */
-    check(zone: string, apiKey: string): Promise<object>;
+    check(zone: string): Promise<object>;
 }
 //# sourceMappingURL=gridIntensity.d.ts.map

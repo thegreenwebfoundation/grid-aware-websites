@@ -14,6 +14,10 @@ export type PowerBreakdownOptions = {
      * - The data provider to use
      */
     dataProvider?: string;
+    /**
+     * - The API key for the data provider
+     */
+    apiKey?: string;
 };
 /**
  * A class for checking the grid intensity of a specified zone.
@@ -28,6 +32,7 @@ export class PowerBreakdown {
     mode: any;
     minimumPercentage: any;
     dataProvider: any;
+    apiKey: any;
     /**
      * Set the mode for power breakdown checks.
      * @param {("renewable"|"low-carbon")} mode The mode to use
@@ -58,9 +63,8 @@ export class PowerBreakdown {
     /**
      * Check the power breakdown of the specified zone.
      * @param {string} zone The zone for which to check the power breakdown.
-     * @param {string} apiKey The API key for the data provider.
      * @returns {Promise<object>} The results of grid-awareness check based on power breakdown and specified mode.
      */
-    check(zone: string, apiKey: string): Promise<object>;
+    check(zone: string): Promise<object>;
 }
 //# sourceMappingURL=powerBreakdown.d.ts.map
