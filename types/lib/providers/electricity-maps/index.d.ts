@@ -19,4 +19,4 @@ export function getGridIntensity(zone: string | object, apiKey: string): Promise
  * @returns {Promise<object>} The power breakdown of the grid for the given zone.
  */
 export function getPowerBreakdown(zone: string, apiKey: string): Promise<object>;
-//# sourceMappingURL=electricityMaps.d.ts.map
+//# sourceMappingURL=index.d.ts.map
