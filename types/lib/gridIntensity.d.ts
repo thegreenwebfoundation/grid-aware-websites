@@ -1,13 +1,66 @@
 /**
- * Fetch the grid intensity for a given zone.
- * @param {string|object} zone The string ID for the zone (e.g. "DE" for Germany) or an object containing lat and lon properties (e.g. { lat: 51.1, lon: 0.1 }) for which we want to get data for.
- * @param {string} apiKey The Electricity Maps API key to use for the request.
- * @param {object} options Additional options for the request.
- * @returns {Promise<object>} The grid intensity data for the given zone.
- * @example
- * const zone = "DE";
- * const apiKey = "your-api-key";
- * const gridIntensity = await fetchGridIntensity(zone, apiKey);
+ * Configuration options for GridIntensity
  */
-export function fetchGridIntensity(zone: string | object, apiKey: string, options: object): Promise<object>;
+export type GridIntensityOptions = {
+    /**
+     * - The mode to use for grid intensity checks
+     */
+    mode?: ("average" | "limit");
+    /**
+     * - The minimum intensity threshold in gCO2/kWh
+     */
+    minimumIntensity?: number;
+    /**
+     * - The data provider to use
+     */
+    dataProvider?: string;
+};
+/**
+ * A class for checking the grid intensity of a specified zone.
+ * @class
+ * @param {GridIntensityOptions} Configuration options
+ * @throws {Error} An error is thrown if the mode is invalid.
+ * @throws {Error} An error is thrown if the minimum intensity is not a number.
+ * @throws {Error} An error is thrown if the data provider is invalid.
+ */
+export class GridIntensity {
+    constructor(options?: {});
+    mode: any;
+    minimumIntensity: any;
+    dataProvider: any;
+    /**
+     * Set the mode for grid intensity checks.
+     * @param {("average"|"limit")} mode The mode to use for grid intensity checks.
+     * @throws {Error} An error is thrown if the mode is not 'average' or 'limit'.
+     */
+    setMode(mode: ("average" | "limit")): void;
+    /**
+     * Set the minimum intensity threshold for grid intensity checks.
+     * @param {number} minimumIntensity The minimum intensity threshold in gCO2/kWh.
+     * @throws {Error} An error is thrown if the minimum intensity is not a number.
+     */
+    setMinimumIntensity(minimumIntensity: number): void;
+    /**
+     * Set the data provider for fetching grid intensity data.
+     * @param {string} dataProvider The data provider to use.
+     * @throws {Error} An error is thrown if the data provider is invalid.
+     */
+    setDataProvider(dataProvider: string): void;
+    /**
+     * Set the configuration options for the GridIntensity class.
+     * @param {GridIntensityOptions} options Configuration options for GridIntensity
+     * @throws {Error} An error is thrown if the mode is invalid.
+     * @throws {Error} An error is thrown if the minimum intensity is not a number.
+     * @throws {Error} An error is thrown if the data provider is invalid.
+     * @returns {void}
+     */
+    setOptions(options: GridIntensityOptions): void;
+    /**
+     * Check the grid intensity of the specified zone.
+     * @param {string} zone The zone for which to check the grid intensity.
+     * @param {string} apiKey The API key for the data provider.
+     * @returns {Promise<object>} The results of grid-awareness check based on grid intensity and specified mode.
+     */
+    check(zone: string, apiKey: string): Promise<object>;
+}
 //# sourceMappingURL=gridIntensity.d.ts.map

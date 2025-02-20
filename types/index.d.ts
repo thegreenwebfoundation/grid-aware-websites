@@ -1,4 +1,4 @@
-import { fetchGridIntensity } from "./lib/gridIntensity.js";
-import { fetchPowerBreakdown } from "./lib/powerBreakdown.js";
-export { fetchGridIntensity as gridAwareCO2e, fetchPowerBreakdown as gridAwarePower };
+import { GridIntensity } from "./lib/gridIntensity.js";
+import { PowerBreakdown } from "./lib/powerBreakdown.js";
+export { GridIntensity, PowerBreakdown };
 //# sourceMappingURL=index.d.ts.map
