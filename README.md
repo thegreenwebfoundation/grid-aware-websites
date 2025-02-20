@@ -2,7 +2,8 @@
 
 # Grid-aware Websites
 
-> [!CAUTION] > _This repository is currently under active development. It is **not advised** that this code be used in any critical production systems._
+> [!CAUTION]
+> _This repository is currently under active development. It is **not advised** that this code be used in any critical production systems._
 
 This library is part of the grid-aware websites toolkit developed by [Green Web Foundation](https://www.thegreenwebfoundation.org). The aim of the toolkit is to considerably reduce the barrier to entry for developers and designers seeking to build grid-aware websites. It consists of three parts:
 
@@ -77,7 +78,7 @@ The `gridAwarePower()` function will return either:
 You can choose to use grid intensity data to determine if grid-aware changes should be made. In this approach, the current grid intensity (fetched from Electricity Maps) is compared with the annual average grid intensity data (available in CO2.js). If the grid intensity is higher than the annual average, `gridAware: true` will be returned indicating that grid-aware changes should be applied. Otherwise `gridAware: false` will be returned.
 
 ```js
-import { gridAwareCO2e } from "grid-aware-websites";
+import { gridAwareCO2e } from "@greenweb/grid-aware-websites";
 
 const zone = "DE"; // The zone ID string or lat-lon object you'd like to get grid intensity data for
 const apiKey = "your_api_key";
