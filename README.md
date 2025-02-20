@@ -24,7 +24,7 @@ npm install @greenweb/grid-aware-websites
 You can now import this library into a JavaScript project like this:
 
 ```js
-import { gridAwarePower } from "@greenweb/grid-aware-websites";
+import { PowerBreakdown } from "@greenweb/grid-aware-websites";
 ```
 
 ## Working with this library
@@ -42,7 +42,7 @@ You may choose to use the current power consumption breakdown of a regional grid
 A minimum threshold can also be specified. This is the minimum percentage of renewable/low-carbon energy being used by the grid. By default this value is set to `50` percent - meaning that at least 50% of the energy on the grid must come from renewables/low-carbon sources otherwise the `gridAware: true` flag will be returned.
 
 ```js
-import { gridAwarePower } from "@greenweb/grid-aware-websites";
+import { PowerBreakdown } from "@greenweb/grid-aware-websites";
 
 const zone = "DE"; // The zone ID string or lat-lon object of the region you'd like to get grid intensity data for
 const apiKey = "you_api_key";
@@ -52,12 +52,12 @@ const options = {
   minimumPercentage: 95, // The minimum percentage of the choosen energy type before grid-awareness should be triggered. Default: 50
 };
 
-const gridData = await gridAwarePower(zone, apiKey, options);
+const powerBreakdown = new PowerBreakdown(options);
+
+const gridData = await powerBreakdown.check(zone, apiKey);
 ```
 
-The `gridAwarePower()` function will return either:
-
-#### Success
+The `powerBreakdown.check` function will return:
 
 ```js
 {
@@ -78,7 +78,7 @@ The `gridAwarePower()` function will return either:
 You can choose to use grid intensity data to determine if grid-aware changes should be made. In this approach, the current grid intensity (fetched from Electricity Maps) is compared with the annual average grid intensity data (available in CO2.js). If the grid intensity is higher than the annual average, `gridAware: true` will be returned indicating that grid-aware changes should be applied. Otherwise `gridAware: false` will be returned.
 
 ```js
-import { gridAwareCO2e } from "@greenweb/grid-aware-websites";
+import { GridIntensity } from "@greenweb/grid-aware-websites";
 
 const zone = "DE"; // The zone ID string or lat-lon object you'd like to get grid intensity data for
 const apiKey = "your_api_key";
@@ -88,12 +88,12 @@ const options = {
   minimumIntensity: 400, // The minimum grid intensity value (grams CO2e/kWh) before grid-awareness is triggered. Default: 400
 };
 
-const gridData = await gridAwareCO2e(zone, apiKey, options);
+const gridIntensity = new GridIntensity(options);
+
+const gridData = await gridIntensity.check(zone, apiKey);
 ```
 
-The `gridAwareCO2e()` function will return either:
-
-#### Success
+The `gridIntensity.check()` function will return:
 
 ```js
 {
@@ -109,9 +109,9 @@ The `gridAwareCO2e()` function will return either:
 }
 ```
 
-### Error
+### Error during check
 
-If either function experiences an error during execution, it will return an error status with additional context.
+If either function encounters an error during execution, it will return an error status with additional context.
 
 ```js
 {
