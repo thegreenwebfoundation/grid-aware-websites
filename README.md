@@ -45,11 +45,11 @@ A minimum threshold can also be specified. This is the minimum percentage of ren
 import { PowerBreakdown } from "@greenweb/grid-aware-websites";
 
 const zone = "DE"; // The zone ID string or lat-lon object of the region you'd like to get grid intensity data for
-const apiKey = "you_api_key";
 
 const options = {
   mode: "renewables", // The energy data we want to use - either renewables or low-carbon. Default: renewables
   minimumPercentage: 95, // The minimum percentage of the choosen energy type before grid-awareness should be triggered. Default: 50
+  apiKey:  "you_api_key";
 };
 
 const powerBreakdown = new PowerBreakdown(options);
@@ -81,11 +81,11 @@ You can choose to use grid intensity data to determine if grid-aware changes sho
 import { GridIntensity } from "@greenweb/grid-aware-websites";
 
 const zone = "DE"; // The zone ID string or lat-lon object you'd like to get grid intensity data for
-const apiKey = "your_api_key";
 
 const options = {
   mode: "average", // The type of comparison used to determine grid-awareness - either average or limit. Default: average
   minimumIntensity: 400, // The minimum grid intensity value (grams CO2e/kWh) before grid-awareness is triggered. Default: 400
+  apiKey:  "you_api_key";
 };
 
 const gridIntensity = new GridIntensity(options);
