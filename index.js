@@ -1,7 +1,7 @@
-import { fetchGridIntensity } from "./lib/gridIntensity.js";
+import { GridIntensity } from "./lib/gridIntensity.js";
 import { fetchPowerBreakdown } from "./lib/powerBreakdown.js";
 
 export {
-  fetchGridIntensity as gridAwareCO2e,
-  fetchPowerBreakdown as gridAwarePower,
+  GridIntensity,
+  fetchPowerBreakdown as powerBreakdown,
 };
