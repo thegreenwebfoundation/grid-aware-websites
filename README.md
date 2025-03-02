@@ -54,7 +54,7 @@ const options = {
 
 const powerBreakdown = new PowerBreakdown(options);
 
-const gridData = await powerBreakdown.check(zone, apiKey);
+const gridData = await powerBreakdown.check(zone);
 ```
 
 The `powerBreakdown.check` function will return:
@@ -90,7 +90,7 @@ const options = {
 
 const gridIntensity = new GridIntensity(options);
 
-const gridData = await gridIntensity.check(zone, apiKey);
+const gridData = await gridIntensity.check(zone);
 ```
 
 The `gridIntensity.check()` function will return:
