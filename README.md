@@ -47,9 +47,9 @@ import { PowerBreakdown } from "@greenweb/grid-aware-websites";
 const zone = "DE"; // The zone ID string or lat-lon object of the region you'd like to get grid intensity data for
 
 const options = {
-  mode: "renewables", // The energy data we want to use - either renewables or low-carbon. Default: renewables
+  mode: "renewable", // The energy data we want to use - either renewables or low-carbon. Default: renewables
   minimumPercentage: 95, // The minimum percentage of the choosen energy type before grid-awareness should be triggered. Default: 50
-  apiKey:  "you_api_key";
+  apiKey:  "you_api_key",
 };
 
 const powerBreakdown = new PowerBreakdown(options);
@@ -65,7 +65,7 @@ The `powerBreakdown.check` function will return:
     "gridAware": boolean, // A flag indicating if grid aware changes should be applied
     "region": "DE" // The country code of the region you'd like to get grid intensity data for
     "data": {
-          "mode": "renewables", // The energy source being used
+          "mode": "renewable", // The energy source being used
           "minimumPercentage": 95, // The minimum percentage for that energy source before grid-awareness is set to true,
           "renewablePercentage": number, // Only returned when mode === "renewables". Data from Electricity Maps for the current renewables percentage
         //   "lowCarbonPercentage": number, // Only returned when mode === "low-carbon". Data from Electricity Maps for the current low-carbon (renewables + nuclear) percentage,
@@ -85,7 +85,7 @@ const zone = "DE"; // The zone ID string or lat-lon object you'd like to get gri
 const options = {
   mode: "average", // The type of comparison used to determine grid-awareness - either average or limit. Default: average
   minimumIntensity: 400, // The minimum grid intensity value (grams CO2e/kWh) before grid-awareness is triggered. Default: 400
-  apiKey:  "you_api_key";
+  apiKey:  "you_api_key",
 };
 
 const gridIntensity = new GridIntensity(options);
