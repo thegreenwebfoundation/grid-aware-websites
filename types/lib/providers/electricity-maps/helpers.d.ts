@@ -7,9 +7,12 @@
 export function fetchData(url: string, headers: object): Promise<object>;
 /**
  * This function sets up the parameters for fetching data based on the zone provided.
- * @param {string | object} zone The two-letter code for the zone (e.g. "DE" for Germany) or an object containing lat and lon properties.
+ * @param {string | {lat: string, lon: string}} zone The two-letter code for the zone (e.g. "DE" for Germany) or an object containing lat and lon properties.
  * @param {string} apiKey The API key for accessing the Electricity Map API. Obtain from https://api-portal.electricitymaps.com/
  * @returns {Promise<object>} The setup parameters for fetching data.
  */
-export function setupFunction(zone: string | object, apiKey: string): Promise<object>;
+export function setupFunction(zone: string | {
+    lat: string;
+    lon: string;
+}, apiKey: string): Promise<object>;
 //# sourceMappingURL=helpers.d.ts.map

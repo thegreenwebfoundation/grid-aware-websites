@@ -62,9 +62,12 @@ export class GridIntensity {
     setOptions(options: GridIntensityOptions): void;
     /**
      * Check the grid intensity of the specified zone.
-     * @param {string} zone The zone for which to check the grid intensity.
+     * @param {string|{lat: string, lon: string}} zone The zone for which to check the grid intensity.
      * @returns {Promise<object>} The results of grid-awareness check based on grid intensity and specified mode.
      */
-    check(zone: string): Promise<object>;
+    check(zone: string | {
+        lat: string;
+        lon: string;
+    }): Promise<object>;
 }
 //# sourceMappingURL=gridIntensity.d.ts.map
