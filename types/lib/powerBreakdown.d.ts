@@ -62,9 +62,12 @@ export class PowerBreakdown {
     setOptions(options: PowerBreakdownOptions): void;
     /**
      * Check the power breakdown of the specified zone.
-     * @param {string} zone The zone for which to check the power breakdown.
+     * @param {string|{lat: string, lon: string}} zone The zone for which to check the power breakdown.
      * @returns {Promise<object>} The results of grid-awareness check based on power breakdown and specified mode.
      */
-    check(zone: string): Promise<object>;
+    check(zone: string | {
+        lat: string;
+        lon: string;
+    }): Promise<object>;
 }
 //# sourceMappingURL=powerBreakdown.d.ts.map
