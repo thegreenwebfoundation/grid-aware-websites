@@ -2,8 +2,7 @@
 
 # Grid-aware Websites
 
-> [!CAUTION]
-> _This repository is currently under active development. It is **not advised** that this code be used in any critical production systems._
+> [!CAUTION] > _This repository is currently under active development. It is **not advised** that this code be used in any critical production systems._
 
 This library is part of the grid-aware websites toolkit developed by [Green Web Foundation](https://www.thegreenwebfoundation.org). The aim of the toolkit is to considerably reduce the barrier to entry for developers and designers seeking to build grid-aware websites. It consists of three parts:
 
@@ -44,12 +43,15 @@ A minimum threshold can also be specified. This is the minimum percentage of ren
 ```js
 import { PowerBreakdown } from "@greenweb/grid-aware-websites";
 
-const zone = "DE"; // The zone ID string or lat-lon object of the region you'd like to get grid intensity data for
+// The zone ID string or lat-lon object of the region you'd like to get grid intensity data for
+// e.g const zone = "DE"
+// e.g const zone = {lat: "123", lon: "123"}
+const zone = "DE";
 
 const options = {
   mode: "renewable", // The energy data we want to use - either renewables or low-carbon. Default: renewables
   minimumPercentage: 95, // The minimum percentage of the choosen energy type before grid-awareness should be triggered. Default: 50
-  apiKey:  "you_api_key",
+  apiKey: "you_api_key",
 };
 
 const powerBreakdown = new PowerBreakdown(options);
@@ -80,12 +82,15 @@ You can choose to use grid intensity data to determine if grid-aware changes sho
 ```js
 import { GridIntensity } from "@greenweb/grid-aware-websites";
 
-const zone = "DE"; // The zone ID string or lat-lon object you'd like to get grid intensity data for
+// The zone ID string or lat-lon object of the region you'd like to get grid intensity data for
+// e.g const zone = "DE"
+// e.g const zone = {lat: "123", lon: "123"}
+const zone = "DE";
 
 const options = {
   mode: "average", // The type of comparison used to determine grid-awareness - either average or limit. Default: average
   minimumIntensity: 400, // The minimum grid intensity value (grams CO2e/kWh) before grid-awareness is triggered. Default: 400
-  apiKey:  "you_api_key",
+  apiKey: "you_api_key",
 };
 
 const gridIntensity = new GridIntensity(options);
