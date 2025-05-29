@@ -5,7 +5,7 @@ export type GridIntensityOptions = {
     /**
      * - The mode to use for grid intensity checks
      */
-    mode?: ("average" | "limit");
+    mode?: ("level" | "average" | "limit");
     /**
      * - The minimum intensity threshold in gCO2/kWh
      */
@@ -30,15 +30,15 @@ export type GridIntensityOptions = {
 export class GridIntensity {
     constructor(options?: {});
     mode: any;
-    minimumIntensity: any;
     dataProvider: any;
     apiKey: any;
+    minimumIntensity: any;
     /**
      * Set the mode for grid intensity checks.
-     * @param {("average"|"limit")} mode The mode to use for grid intensity checks.
+     * @param {("level"|"average"|"limit")} mode The mode to use for grid intensity checks.
      * @throws {Error} An error is thrown if the mode is not 'average' or 'limit'.
      */
-    setMode(mode: ("average" | "limit")): void;
+    setMode(mode: ("level" | "average" | "limit")): void;
     /**
      * Set the minimum intensity threshold for grid intensity checks.
      * @param {number} minimumIntensity The minimum intensity threshold in gCO2/kWh.
