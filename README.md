@@ -15,13 +15,13 @@ This library is part of the grid-aware websites toolkit developed by [Green Web 
 You can install this library using NPM.
 
 ```
-npm install @greenweb/grid-aware-websites
+npm install @greenweb/grid-aware-websites@next
 ```
 
 You can now import this library into a JavaScript project like this:
 
 ```js
-import { PowerBreakdown } from "@greenweb/grid-aware-websites";
+import { GridIntensity } from "@greenweb/grid-aware-websites";
 ```
 
 ## Working with this library
@@ -31,6 +31,44 @@ This library currently uses the [Electricity Maps API](https://api-portal.electr
 _We hope to add other data sources at a later time._
 
 You will need to have an Electricity Maps API key in order to use this library. You will probably want to set this as a private environment variable in your project. You can obtain an API key here: [https://api-portal.electricitymaps.com/](https://api-portal.electricitymaps.com/)
+
+### Using grid intensity data
+
+You can choose to use grid intensity data to determine if grid-aware changes should be made. In this approach, the current grid intensity (fetched from Electricity Maps) is compared with the annual average grid intensity data (available in CO2.js). If the grid intensity is higher than the annual average, `gridAware: true` will be returned indicating that grid-aware changes should be applied. Otherwise `gridAware: false` will be returned.
+
+```js
+import { GridIntensity } from "@greenweb/grid-aware-websites";
+
+// The zone ID string or lat-lon object of the region you'd like to get grid intensity data for
+// e.g const zone = "DE"
+// e.g const zone = {lat: "123", lon: "123"}
+const zone = "DE";
+
+const options = {
+  mode: "level", // The type of comparison used to determine grid-awareness - either "level", "average" or "limit". Default: "level"
+  apiKey: "you_api_key",
+};
+
+const gridIntensity = new GridIntensity(options);
+
+const gridData = await gridIntensity.check(zone);
+```
+
+The `gridIntensity.check()` function will return:
+
+```js
+{
+    "status": "success",
+    "gridAware": boolean, // A flag indicating if grid aware changes should be applied
+    "region": "DE" // The country code of the region you'd like to get grid intensity data for
+    "data" {
+        "mode": "average", // The comparison method being used
+        "carbonIntensity": number, // The current grid intensity fetched from Electricity Maps
+        "averageIntensity": number // Only returned when mode === "average". The annual average grid intensity for the zone being checked taken from CO2.js
+        // "minimumIntensity": 400 // Returned only when mode === "limit".
+    }
+}
+```
 
 ### Using grid power breakdown
 
@@ -70,45 +108,6 @@ The `powerBreakdown.check` function will return:
           "renewablePercentage": number, // Only returned when mode === "renewables". Data from Electricity Maps for the current renewables percentage
         //   "lowCarbonPercentage": number, // Only returned when mode === "low-carbon". Data from Electricity Maps for the current low-carbon (renewables + nuclear) percentage,
         },
-}
-```
-
-### Using grid intensity data
-
-You can choose to use grid intensity data to determine if grid-aware changes should be made. In this approach, the current grid intensity (fetched from Electricity Maps) is compared with the annual average grid intensity data (available in CO2.js). If the grid intensity is higher than the annual average, `gridAware: true` will be returned indicating that grid-aware changes should be applied. Otherwise `gridAware: false` will be returned.
-
-```js
-import { GridIntensity } from "@greenweb/grid-aware-websites";
-
-// The zone ID string or lat-lon object of the region you'd like to get grid intensity data for
-// e.g const zone = "DE"
-// e.g const zone = {lat: "123", lon: "123"}
-const zone = "DE";
-
-const options = {
-  mode: "average", // The type of comparison used to determine grid-awareness - either average or limit. Default: average
-  minimumIntensity: 400, // The minimum grid intensity value (grams CO2e/kWh) before grid-awareness is triggered. Default: 400
-  apiKey: "you_api_key",
-};
-
-const gridIntensity = new GridIntensity(options);
-
-const gridData = await gridIntensity.check(zone);
-```
-
-The `gridIntensity.check()` function will return:
-
-```js
-{
-    "status": "success",
-    "gridAware": boolean, // A flag indicating if grid aware changes should be applied
-    "region": "DE" // The country code of the region you'd like to get grid intensity data for
-    "data" {
-        "mode": "average", // The comparison method being used
-        "carbonIntensity": number, // The current grid intensity fetched from Electricity Maps
-        "averageIntensity": number // Only returned when mode === "average". The annual average grid intensity for the zone being checked taken from CO2.js
-        // "minimumIntensity": 400 // Returned only when mode === "limit".
-    }
 }
 ```
 
