@@ -59,13 +59,11 @@ The `gridIntensity.check()` function will return:
 ```js
 {
     "status": "success",
-    "gridAware": boolean, // A flag indicating if grid aware changes should be applied
     "region": "DE" // The country code of the region you'd like to get grid intensity data for
+    "level": "moderate" // If using the "level" API, you will receive a returned value of "low", "moderate", or "high".
     "data" {
-        "mode": "average", // The comparison method being used
-        "carbonIntensity": number, // The current grid intensity fetched from Electricity Maps
-        "averageIntensity": number // Only returned when mode === "average". The annual average grid intensity for the zone being checked taken from CO2.js
-        // "minimumIntensity": 400 // Returned only when mode === "limit".
+        "mode": "level", // The comparison method being used
+        "datetime": "2025-06-16T04:00:00.000Z" // The datetime string indicating the last data update from the Electricity Maps API
     }
 }
 ```
