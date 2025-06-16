@@ -2,8 +2,6 @@
 
 # Grid-aware Websites
 
-> [!CAUTION] > _This repository is currently under active development. It is **not advised** that this code be used in any critical production systems._
-
 This library is part of the grid-aware websites toolkit developed by [Green Web Foundation](https://www.thegreenwebfoundation.org). The aim of the toolkit is to considerably reduce the barrier to entry for developers and designers seeking to build grid-aware websites. It consists of three parts:
 
 1. This codebase
