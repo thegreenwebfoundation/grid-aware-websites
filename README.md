@@ -15,7 +15,7 @@ This library is part of the grid-aware websites toolkit developed by [Green Web 
 You can install this library using NPM.
 
 ```
-npm install @greenweb/grid-aware-websites@next
+npm install @greenweb/grid-aware-websites
 ```
 
 You can now import this library into a JavaScript project like this:
