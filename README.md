@@ -2,8 +2,6 @@
 
 # Grid-aware Websites
 
-> [!CAUTION] > _This repository is currently under active development. It is **not advised** that this code be used in any critical production systems._
-
 This library is part of the grid-aware websites toolkit developed by [Green Web Foundation](https://www.thegreenwebfoundation.org). The aim of the toolkit is to considerably reduce the barrier to entry for developers and designers seeking to build grid-aware websites. It consists of three parts:
 
 1. This codebase
@@ -23,7 +21,7 @@ npm install @greenweb/grid-aware-websites
 You can now import this library into a JavaScript project like this:
 
 ```js
-import { PowerBreakdown } from "@greenweb/grid-aware-websites";
+import { GridIntensity } from "@greenweb/grid-aware-websites";
 ```
 
 ## Working with this library
@@ -33,6 +31,44 @@ This library currently uses the [Electricity Maps API](https://api-portal.electr
 _We hope to add other data sources at a later time._
 
 You will need to have an Electricity Maps API key in order to use this library. You will probably want to set this as a private environment variable in your project. You can obtain an API key here: [https://api-portal.electricitymaps.com/](https://api-portal.electricitymaps.com/)
+
+### Using grid intensity data
+
+You can choose to use grid intensity data to determine if grid-aware changes should be made. In this approach, the current grid intensity (fetched from Electricity Maps) is compared with the annual average grid intensity data (available in CO2.js). If the grid intensity is higher than the annual average, `gridAware: true` will be returned indicating that grid-aware changes should be applied. Otherwise `gridAware: false` will be returned.
+
+```js
+import { GridIntensity } from "@greenweb/grid-aware-websites";
+
+// The zone ID string or lat-lon object of the region you'd like to get grid intensity data for
+// e.g const zone = "DE"
+// e.g const zone = {lat: "123", lon: "123"}
+const zone = "DE";
+
+const options = {
+  mode: "level", // The type of comparison used to determine grid-awareness - either "level", "average" or "limit". Default: "level"
+  apiKey: "you_api_key",
+};
+
+const gridIntensity = new GridIntensity(options);
+
+const gridData = await gridIntensity.check(zone);
+```
+
+The `gridIntensity.check()` function will return:
+
+```js
+{
+    "status": "success",
+    "region": "DE" // The country code of the region you'd like to get grid intensity data for
+    "level": "moderate" // If using the "level" API, you will receive a returned value of "low", "moderate", or "high".
+    "data" {
+        "mode": "level", // The comparison method being used
+        "datetime": "2025-06-16T04:00:00.000Z" // The datetime string indicating the last data update from the Electricity Maps API
+    }
+}
+```
+
+> ![NOTE] By default this function uses the [Electricity Maps Carbon Aware Websites API](https://portal.electricitymaps.com/developer-hub/api/reference#latest-carbon-intensity-level). Using `"average"` or `"limit"` modes instead require the [Electricity Maps Granular API](https://portal.electricitymaps.com/developer-hub/api/reference#carbon-intensity-latest) access. The Carbon Aware Websites API is currently only available under a paid plan, while the Granular API has free access for one zone. We are in conversation with Electricity Maps on ways to make this data available in some kind of free version. You can track the progress and express your interest in this API [in this issue](https://github.com/thegreenwebfoundation/grid-aware-websites/issues/21).
 
 ### Using grid power breakdown
 
@@ -75,44 +111,7 @@ The `powerBreakdown.check` function will return:
 }
 ```
 
-### Using grid intensity data
-
-You can choose to use grid intensity data to determine if grid-aware changes should be made. In this approach, the current grid intensity (fetched from Electricity Maps) is compared with the annual average grid intensity data (available in CO2.js). If the grid intensity is higher than the annual average, `gridAware: true` will be returned indicating that grid-aware changes should be applied. Otherwise `gridAware: false` will be returned.
-
-```js
-import { GridIntensity } from "@greenweb/grid-aware-websites";
-
-// The zone ID string or lat-lon object of the region you'd like to get grid intensity data for
-// e.g const zone = "DE"
-// e.g const zone = {lat: "123", lon: "123"}
-const zone = "DE";
-
-const options = {
-  mode: "average", // The type of comparison used to determine grid-awareness - either average or limit. Default: average
-  minimumIntensity: 400, // The minimum grid intensity value (grams CO2e/kWh) before grid-awareness is triggered. Default: 400
-  apiKey: "you_api_key",
-};
-
-const gridIntensity = new GridIntensity(options);
-
-const gridData = await gridIntensity.check(zone);
-```
-
-The `gridIntensity.check()` function will return:
-
-```js
-{
-    "status": "success",
-    "gridAware": boolean, // A flag indicating if grid aware changes should be applied
-    "region": "DE" // The country code of the region you'd like to get grid intensity data for
-    "data" {
-        "mode": "average", // The comparison method being used
-        "carbonIntensity": number, // The current grid intensity fetched from Electricity Maps
-        "averageIntensity": number // Only returned when mode === "average". The annual average grid intensity for the zone being checked taken from CO2.js
-        // "minimumIntensity": 400 // Returned only when mode === "limit".
-    }
-}
-```
+> ![NOTE] This function requires access to the [Electricity Maps Granular API](https://portal.electricitymaps.com/developer-hub/api/reference#carbon-intensity-latest). The Granular API has free access for only one zone. We are in conversation with Electricity Maps on ways to make this data available in some kind of free version. You can track the progress and express your interest in this API [in this issue](https://github.com/thegreenwebfoundation/grid-aware-websites/issues/21).
 
 ### Error during check
 
@@ -139,6 +138,8 @@ This library can be used anywhere that runs server-side JavaScript and can make 
 - [Cloudflare Workers](https://github.com/thegreenwebfoundation/gaw-plugin-cloudflare-workers)
 - [Netlify Edge Functions](https://github.com/thegreenwebfoundation/gaw-plugin-netlify-edge)
 - ... more to come
+
+The the platform your want to deploy Grid-aware Websites on is not listed above, please create an [issue](/issues) to start a conversation about it.
 
 ### Demo sites
 
