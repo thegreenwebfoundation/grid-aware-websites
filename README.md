@@ -139,6 +139,8 @@ This library can be used anywhere that runs server-side JavaScript and can make 
 - [Netlify Edge Functions](https://github.com/thegreenwebfoundation/gaw-plugin-netlify-edge)
 - ... more to come
 
+The the platform your want to deploy Grid-aware Websites on is not listed above, please create an [issue](/issues) to start a conversation about it.
+
 ### Demo sites
 
 - [Cloudflare Workers Demo Site](https://github.com/thegreenwebfoundation/grid-aware-websites-demo-cloudflare)
