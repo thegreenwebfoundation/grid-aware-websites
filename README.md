@@ -10,6 +10,10 @@ This library is part of the grid-aware websites toolkit developed by [Green Web 
 
 [Read about the project on our website](https://www.thegreenwebfoundation.org/tools/grid-aware-websites/).
 
+## What is the Grid-aware Websites library
+
+This repository contains the core code for the Grid-aware Websites library - a JavaScript library which allows frontend developers to build dynamic web experiences that respond to the energy grids on which they are being used.
+
 ## Installing this library
 
 You can install this library using NPM.
