@@ -72,7 +72,8 @@ The `gridIntensity.check()` function will return:
 }
 ```
 
-> [!NOTE] By default this function uses the [Electricity Maps Carbon Aware Websites API](https://portal.electricitymaps.com/developer-hub/api/reference#latest-carbon-intensity-level). Using `"average"` or `"limit"` modes instead require the [Electricity Maps Granular API](https://portal.electricitymaps.com/developer-hub/api/reference#carbon-intensity-latest) access. The Carbon Aware Websites API is currently only available under a paid plan, while the Granular API has free access for one zone. We are in conversation with Electricity Maps on ways to make this data available in some kind of free version. You can track the progress and express your interest in this API [in this issue](https://github.com/thegreenwebfoundation/grid-aware-websites/issues/21).
+> [!NOTE] 
+> By default this function uses the [Electricity Maps Carbon Aware Websites API](https://portal.electricitymaps.com/developer-hub/api/reference#latest-carbon-intensity-level). Using `"average"` or `"limit"` modes instead require the [Electricity Maps Granular API](https://portal.electricitymaps.com/developer-hub/api/reference#carbon-intensity-latest) access. The Carbon Aware Websites API is currently only available under a paid plan, while the Granular API has free access for one zone. We are in conversation with Electricity Maps on ways to make this data available in some kind of free version. You can track the progress and express your interest in this API [in this issue](https://github.com/thegreenwebfoundation/grid-aware-websites/issues/21).
 
 ### Using grid power breakdown
 
@@ -115,7 +116,8 @@ The `powerBreakdown.check` function will return:
 }
 ```
 
-> [!NOTE] This function requires access to the [Electricity Maps Granular API](https://portal.electricitymaps.com/developer-hub/api/reference#carbon-intensity-latest). The Granular API has free access for only one zone. We are in conversation with Electricity Maps on ways to make this data available in some kind of free version. You can track the progress and express your interest in this API [in this issue](https://github.com/thegreenwebfoundation/grid-aware-websites/issues/21).
+> [!NOTE] 
+> This function requires access to the [Electricity Maps Granular API](https://portal.electricitymaps.com/developer-hub/api/reference#carbon-intensity-latest). The Granular API has free access for only one zone. We are in conversation with Electricity Maps on ways to make this data available in some kind of free version. You can track the progress and express your interest in this API [in this issue](https://github.com/thegreenwebfoundation/grid-aware-websites/issues/21).
 
 ### Error during check
 
